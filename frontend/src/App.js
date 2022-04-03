@@ -1,9 +1,13 @@
-// import './App.css';
+import './css/App.css';
 
-function App() {
+function App() { 
+  
   return (
     <div className="App">
-   
+      <div className="container">
+        <h1>Wordle</h1>
+        
+      </div>
     </div>
   );
 }
