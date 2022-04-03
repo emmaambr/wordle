@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Wordle game clone",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmaambr/wordle.git"
+  },
+  "author": "Emma Amberdal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmaambr/wordle/issues"
+  },
+  "homepage": "https://github.com/emmaambr/wordle#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
