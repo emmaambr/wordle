@@ -4,16 +4,16 @@ function Configure() {
 
 
     return (
-        <div className="container">
+        <div className="config-container">
             <form>
-                <label> How many letters? </label>
+                <label className="letter-amount"> How many letters? </label>
                 <select>
                     <option value="4">Play with 4-letter words</option>
                     <option value="5">Play with 5-letter words</option>
                     <option value="6">Play with 6-letter words</option>
                 </select>
               
-                <label>
+                <label className="letter-unique">
                     <input type="checkbox" value="unique" />
                     Only allow unique characters
                 </label>

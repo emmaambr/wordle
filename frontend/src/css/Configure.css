@@ -1,0 +1,52 @@
+.config-container {
+    width: 40vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-amount {
+    margin-top: 2rem;
+}
+
+select {
+    height: 2rem;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.letter-unique {
+    margin: 2rem 0rem;
+}
+
+input:hover {
+ cursor: pointer;
+}
+
+.letter-unique:hover {
+    cursor: pointer;
+}
+
+button {
+    display: flex;
+    align-self: center;
+    margin: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    width: fit-content;
+    color: #fff;
+    background: #f05590;
+    border-style: none;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #f32170;
+    cursor: pointer;
+}
