@@ -42,6 +42,8 @@ function ConfigGame() {
                             value="Unique characters" 
                             onChange={ handleUniqueCharacters } /> Allow unique characters only
                             <br />
+                    </label>
+                    <label className="character-type">
                         <input 
                             type="radio" 
                             name={ CharacterType } 
