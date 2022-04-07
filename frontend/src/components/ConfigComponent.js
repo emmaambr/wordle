@@ -4,7 +4,7 @@ import { useState } from "react"
 function ConfigGame() {
     const [NumberOfCharacters, setNumberOfCharacters] = useState({ value: "5" });
     const [CharacterType, setCharacterType] = useState({ value: "Repeating characters" });
-    const [ConfigState, setConfigState] = useState("config");
+    const [GameState, setGameState] = useState("config");
 
     function handleNumbersOfCharacters(ev) {
         setNumberOfCharacters({ value: ev.target.value });
@@ -20,16 +20,17 @@ function ConfigGame() {
 
     function handleSubmit(ev) {
         ev.preventDefault();
-        setConfigState("");
+        setGameState("playing");
+
     }
 
-    if (ConfigState === "config") {
+    if (GameState === "config") {
         return (
             <div className="cg-container">
                 <form onSubmit={handleSubmit}>
                     <div className="noc-container">
                         <label className="number-of-characters"> How many letters?
-                            <select value={NumberOfCharacters.value} onChange={handleNumbersOfCharacters}>
+                            <select className="select-noc" value={NumberOfCharacters.value} onChange={handleNumbersOfCharacters}>
                                 <option value="4"> Play with 4-letter words </option>
                                 <option value="5"> Play with 5-letter words </option>
                                 <option value="6"> Play with 6-letter words </option>
@@ -40,6 +41,7 @@ function ConfigGame() {
                     <div className="ct-container">
                         <label className="character-type">
                             <input
+                                className="input-ct"
                                 type="radio"
                                 name={CharacterType}
                                 value="Unique characters"
@@ -48,6 +50,7 @@ function ConfigGame() {
                         </label>
                         <label className="character-type">
                             <input
+                                className="input-ct"
                                 type="radio"
                                 name={CharacterType}
                                 value="Repeating characters"
@@ -56,7 +59,7 @@ function ConfigGame() {
                         </label>
                     </div>
 
-                    <button type="submit"> Play! </button>
+                    <button className="config-btn" type="submit"> Play! </button>
                 </form>
             </div>
         );

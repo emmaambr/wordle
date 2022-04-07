@@ -12,11 +12,11 @@
     flex-direction: column;
 }
 
-select {
+.select-noc {
     height: 1.8rem;
 }
 
-select:hover {
+.select-noc:hover {
     cursor: pointer;
 }
 
@@ -24,7 +24,7 @@ select:hover {
     margin: 2rem 0rem;
 }
 
-input:hover {
+.input-ct:hover {
     cursor: pointer;
 }
 
@@ -32,7 +32,7 @@ input:hover {
     cursor: pointer;
 }
 
-button {
+.config-btn {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -47,7 +47,7 @@ button {
     font-size: 1rem;
 }
 
-button:hover {
+.config-btn:hover {
     background: #f32170;
     cursor: pointer;
 }
