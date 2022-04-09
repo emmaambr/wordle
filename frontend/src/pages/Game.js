@@ -1,20 +1,17 @@
 import { useState } from "react";
-import Config from "../components/ConfigComponent"
-import List from "../components/ListComponent";
 import GuessInput from "../components/GuessInputComponent";
+import List from "../components/ListComponent";
+import "../css/Config.css"
 
 function Game() {
-  const [GameState, setGameState] = useState("config");
+  const [GameState, setGameState] = useState("playing");
 
-  function handleGameState() {
-    setGameState("playing");
-  }
 
-  if (GameState === "config") {
+  if (GameState === "won") {
     return (
       <div>
 
-        <Config />
+        <h1> Congratulations, you're a winner!</h1>
 
       </div>
     );
@@ -26,8 +23,9 @@ function Game() {
         <GuessInput />
 
       </div>
-    );
-  }
+
+    )
+  };
 }
 
 export default Game;
