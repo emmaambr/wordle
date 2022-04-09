@@ -1,20 +1,55 @@
-import './css/App.css';
+import { useEffect, useState } from "react";
 import Navbar from './components/NavComponent'
-import Game from './pages/Game';
+import Config from './components/ConfigComponent';
+import Game from "./pages/Game";
+import './css/App.css';
 
-function App() { 
+function App() {
+  const [gameId, setGameId] = useState(null);
+  const [GameState, setGameState] = useState("config");
+  const [NumberOfCharacters, setNumberOfCharacters] = useState(5);
+  const [CharacterType, setCharacterType] = useState("repeating");
 
-  return (
-    <div className="App">
-      <div className="container">
-        <h1>Wordle</h1>
-        
+  useEffect(() => {
+    const startGame = async () => {
+      const res = await fetch("http://localhost:5080/api/games", {
+        method: "post",
+      });
+      const data = await res.json();
+      setGameId(data.id);
+    };
+    startGame();
+  }, []);
+
+  const HandleSubmit = async () => {
+    setGameState("playing");
+  }
+
+  if (GameState === "config") {
+    return (
+      <div className="App">
+        <h1> Wordle </h1>
+
         <Navbar />
-        <Game />
-        
+        <Config
+          HandleSubmit={HandleSubmit}
+          NumberOfCharacters={NumberOfCharacters}
+          setNumberOfCharacters={setNumberOfCharacters}
+          CharacterType={CharacterType}
+          setCharacterType={setCharacterType} />
+          
       </div>
-    </div>
-  );
+    );
+  } else if (GameState === "playing") {
+    return (
+      <div className="App">
+        <h1> Wordle </h1>
+
+        <Game gameId={gameId} />
+
+      </div>
+    );
+  }
 }
 
 export default App;
