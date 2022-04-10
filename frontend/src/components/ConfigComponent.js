@@ -29,7 +29,7 @@ function ConfigGame({ HandleSubmit, NumberOfCharacters, setNumberOfCharacters, C
                             className="input-ct"
                             type="radio"
                             name={CharacterType}
-                            value="Unique"
+                            value="unique"
                             onChange={(ev) => setCharacterType(ev.target.value)} />
                         Allow unique characters only
                         <br />
