@@ -1,17 +1,16 @@
 import { useState } from "react";
 import GuessInput from "../components/GuessInputComponent";
-import List from "../components/ListComponent";
+import GuessList from "../components/GuessListComponent";
 import "../css/Config.css"
 
-function Game(gameId) {
+function Game({ gameId }) {
   const [GameState, setGameState] = useState("playing");
   const [InputWord, setInputWord] = useState("");
-  const [Guesses, setGuesses] = useState("")
+  const [guesses, setGuesses] = useState([]);
+  const [result, setResult] = useState(null);
 
-  async function HandleSubmitGuess(keyCode) {
-    if (keyCode === "Enter") {
-      setInputWord("");
-    }
+  async function SubmitGuess() {
+    setGuesses(InputWord);
 
     const res = await fetch(
       `http://localhost:5080/api/games/${gameId}/guesses`,
@@ -23,9 +22,16 @@ function Game(gameId) {
         body: JSON.stringify({ guess: InputWord }),
       }
     );
+
     const data = await res.json();
-    setGuesses(data.Guesses);
-    setGameState("playing");
+
+    if (data.correct) {
+      setResult(data.result);
+      setGameState("won");
+    }
+
+    setGuesses(data.guesses);
+    setInputWord("");
   }
 
   if (GameState === "won") {
@@ -40,8 +46,11 @@ function Game(gameId) {
     return (
       <div>
 
-        <List />
-        <GuessInput HandleSubmitGuess={HandleSubmitGuess} />
+        <GuessList />
+        <GuessInput 
+          SubmitGuess={SubmitGuess} 
+          InputWord={InputWord}
+          setInputWord={setInputWord} />
 
       </div>
 
