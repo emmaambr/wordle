@@ -25,6 +25,38 @@ function App() {
     setGameState("playing");
   }
 
+/* --------------------------------------->>
+
+const GameSettingsHandler = setting => {
+  setHighScoreUrl("/" + setting.wordLength + "/" + setting.wordUniqueness)
+  const startGame = async () => {
+    const res = await fetch("http://localhost:5080/api/game?wordlength=" + setting.wordLength + "&unique=" + setting.wordUniqueness, {
+      method: "post",
+    });
+    const data = await res.json();
+    setGameId(data.id);
+    setWordLength(data.wordLength)
+    setMenuState("playing")
+  };
+  startGame();
+}
+
+/* ----------------------------->>
+
+const HandleSubmit = async (NumberOfCharacters, CharacterType) => {
+  const url = `http://localhost:5080/api/games?charactertype=${CharacterType}&numberofcharacters=${NumberOfCharacters}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  // setCorrectWord(body.word);
+  // setGuessWord([]);
+  setGameState('playing');
+  setGameId(data.id)
+  //startGame();
+  return;
+};
+
+// ----------------------------------------<< */
+
   if (GameState === "config") {
     return (
       <div className="App">

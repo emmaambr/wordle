@@ -10,7 +10,7 @@ function Game({ gameId }) {
   const [result, setResult] = useState(null);
 
   async function SubmitGuess() {
-    setGuesses(InputWord);
+    setGuesses([...guesses]);
 
     const res = await fetch(
       `http://localhost:5080/api/games/${gameId}/guesses`,
@@ -46,9 +46,10 @@ function Game({ gameId }) {
     return (
       <div>
 
-        <GuessList />
-        <GuessInput 
-          SubmitGuess={SubmitGuess} 
+        <GuessList guesses={guesses} />
+
+        <GuessInput
+          SubmitGuess={SubmitGuess}
           InputWord={InputWord}
           setInputWord={setInputWord} />
 
