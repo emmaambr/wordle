@@ -1,9 +1,9 @@
 import "../css/Config.css"
 
-function ConfigGame({ HandleSubmit, NumberOfCharacters, setNumberOfCharacters, CharacterType, setCharacterType }) {
+function ConfigGame({ HandleSubmit, WordLength, setWordLength, Unique, setUnique }) {
     function SubmitSettings(ev) {
         ev.preventDefault();
-        HandleSubmit(NumberOfCharacters, CharacterType);
+        HandleSubmit(WordLength, Unique);
     }
 
     return (
@@ -14,8 +14,8 @@ function ConfigGame({ HandleSubmit, NumberOfCharacters, setNumberOfCharacters, C
                         How many letters?
                         <select
                             className="select-noc"
-                            value={NumberOfCharacters}
-                            onChange={(ev) => setNumberOfCharacters(parseInt(ev.target.value))} >
+                            value={WordLength}
+                            onChange={(ev) => setWordLength(parseInt(ev.target.value))} >
                             <option value="4"> Play with 4-letter words </option>
                             <option value="5"> Play with 5-letter words </option>
                             <option value="6"> Play with 6-letter words </option>
@@ -28,9 +28,9 @@ function ConfigGame({ HandleSubmit, NumberOfCharacters, setNumberOfCharacters, C
                         <input
                             className="input-ct"
                             type="radio"
-                            name={CharacterType}
-                            value="unique"
-                            onChange={(ev) => setCharacterType(ev.target.value)} />
+                            name={Unique}
+                            value="true"
+                            onChange={(ev) => setUnique(ev.target.value)} />
                         Allow unique characters only
                         <br />
                     </label>
@@ -38,10 +38,10 @@ function ConfigGame({ HandleSubmit, NumberOfCharacters, setNumberOfCharacters, C
                         <input
                             className="input-ct"
                             type="radio"
-                            name={CharacterType}
-                            value="repeating"
+                            name={Unique}
+                            value="false"
                             defaultChecked
-                            onChange={(ev) => setCharacterType(ev.target.value)} />
+                            onChange={(ev) => setUnique(ev.target.value)} />
                         Allow repeating characters
                     </label>
                 </div>

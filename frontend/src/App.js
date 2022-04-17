@@ -7,8 +7,8 @@ import './css/App.css';
 function App() {
   const [gameId, setGameId] = useState(null);
   const [GameState, setGameState] = useState("config");
-  const [NumberOfCharacters, setNumberOfCharacters] = useState(5);
-  const [CharacterType, setCharacterType] = useState("repeating");
+  const [WordLength, setWordLength] = useState(5);
+  const [Unique, setUnique] = useState("false");
 
   useEffect(() => {
     const startGame = async () => {
@@ -65,10 +65,10 @@ const HandleSubmit = async (NumberOfCharacters, CharacterType) => {
         <Navbar />
         <Config
           HandleSubmit={HandleSubmit}
-          NumberOfCharacters={NumberOfCharacters}
-          setNumberOfCharacters={setNumberOfCharacters}
-          CharacterType={CharacterType}
-          setCharacterType={setCharacterType} />
+          WordLength={WordLength}
+          setWordLength={setWordLength}
+          Unique={Unique}
+          setUnique={setUnique} />
           
       </div>
     );

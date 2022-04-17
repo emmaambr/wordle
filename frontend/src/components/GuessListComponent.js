@@ -6,7 +6,7 @@ function GuessList({ guesses }) {
     return <li key={index}> {guess} </li>
   });
 
-  return <ul>{guessElements}</ul>;
+  return <ul className="guess-list">{guessElements}</ul>;
 }
 
 export default GuessList;
