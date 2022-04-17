@@ -26,5 +26,3 @@ export async function getRandomWord(wordLength, unique) {
     console.log(wordArr[randomIndex]);
     return wordArr[randomIndex];
 }
-
-export default getRandomWord;
