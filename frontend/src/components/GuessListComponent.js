@@ -5,7 +5,7 @@ function GuessList({ guesses }) {
 
   const guessElements = guesses.map((guess, i) => {
     return (
-      <li key={i}>
+      <li key={i} className="box-container">
         {guess.map(({ letter, color }, j) =>
           <span key={j} className={color}> {letter} </span>
         )}

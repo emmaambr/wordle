@@ -3,3 +3,37 @@
     flex-direction: column;
     align-items: center;
 }
+
+.box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 70vw;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #000;
+    height: 4rem;
+    width: 4rem;
+    padding: 0.5rem;
+    margin: 0.4rem;
+    border-radius: 4px;
+}
+
+.yellow {
+    background-color: #f7f7a3;
+}
+
+.green {
+    background-color: #83e69d;
+}
+
+.red {
+    background-color: #f7a9a3;
+}

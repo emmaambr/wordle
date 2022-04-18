@@ -7,26 +7,26 @@ function ConfigGame({ HandleSubmit, WordLength, setWordLength, Unique, setUnique
     }
 
     return (
-        <div className="cg-container">
-            <form onSubmit={SubmitSettings}>
-                <div className="noc-container">
-                    <label className="number-of-characters"> 
+        <div className="config-container">
+            <form onSubmit={SubmitSettings} className="config-form">
+                <div className="wl-container">
+                    <label className="wl-label"> 
                         How many letters?
                         <select
-                            className="select-noc"
+                            className="wl-select"
                             value={WordLength}
                             onChange={(ev) => setWordLength(parseInt(ev.target.value))} >
-                            <option value="4"> Play with 4-letter words </option>
-                            <option value="5"> Play with 5-letter words </option>
-                            <option value="6"> Play with 6-letter words </option>
+                            <option value="4"> 4 </option>
+                            <option value="5"> 5 </option>
+                            <option value="6"> 6 </option>
                         </select>
                     </label>
                 </div>
 
-                <div className="ct-container">
-                    <label className="character-type">
+                <div className="u-container">
+                    <label className="u-label">
                         <input
-                            className="input-ct"
+                            className="u-input"
                             type="radio"
                             name={Unique}
                             value="true"
@@ -34,9 +34,9 @@ function ConfigGame({ HandleSubmit, WordLength, setWordLength, Unique, setUnique
                         Allow unique characters only
                         <br />
                     </label>
-                    <label className="character-type">
+                    <label className="u-label">
                         <input
-                            className="input-ct"
+                            className="u-input"
                             type="radio"
                             name={Unique}
                             value="false"
@@ -45,7 +45,6 @@ function ConfigGame({ HandleSubmit, WordLength, setWordLength, Unique, setUnique
                         Allow repeating characters
                     </label>
                 </div>
-
                 <button className="config-btn" type="submit"> Play! </button>
             </form>
         </div>

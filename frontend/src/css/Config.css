@@ -1,43 +1,55 @@
-.cg-container {
+.config-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.noc-container {
-    margin: 2rem 0rem;
-}
-
-.number-of-characters {
+.config-form {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    height: 50vh;
+    width: 60vw;
+    border: 2px solid #fff;
+    border-radius: 8px;
 }
 
-.select-noc {
-    height: 1.8rem;
-}
-
-.select-noc:hover {
-    cursor: pointer;
-}
-
-.ct-container {
+.wl-container {
     margin: 2rem 0rem;
 }
 
-.input-ct:hover {
+.wl-label {
+    font-size: 1.2rem;
+}
+
+.wl-select {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+.wl-select:hover {
     cursor: pointer;
 }
 
-.character-type:hover {
+.u-container {
+    margin: 1rem 0rem 2rem 0rem;
+}
+
+.u-label {
+    font-size: 1.2rem;
+}
+
+.u-label:hover {
+    cursor: pointer;
+}
+
+.u-input:hover {
     cursor: pointer;
 }
 
 .config-btn {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+    margin: 1rem;
     width: fit-content;
     padding: 0.4rem 0.6rem;
     color: #fff;
