@@ -1,11 +1,17 @@
 import "../css/GuessList.css";
 
 function GuessList({ guesses }) {
-  const guessElements = guesses.map((guess, index) => {
+  console.log(guesses);
 
-    return <li key={index}> {guess} </li>
+  const guessElements = guesses.map((guess, i) => {
+    return (
+      <li key={i}>
+        {guess.map(({ letter, color }, j) =>
+          <span key={j} className={color}> {letter} </span>
+        )}
+      </li>
+    )
   });
-
   return <ul className="guess-list">{guessElements}</ul>;
 }
 
