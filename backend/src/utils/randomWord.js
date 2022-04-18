@@ -23,6 +23,5 @@ export async function getRandomWord(wordLength, unique) {
         });
 
     const randomIndex = Math.floor(Math.random() * wordArr.length);
-    console.log(wordArr[randomIndex]);
     return wordArr[randomIndex];
 }

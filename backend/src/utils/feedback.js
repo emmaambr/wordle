@@ -7,7 +7,7 @@ export function feedback(correctWord, guess) {
         if (guessArr[i] === correctWordArr[i]) {
             output.push({
                 letter: guessArr[i],
-                color: "#b6fc03"
+                color: "green"
             });
             correctWordArr.splice(i, 1, 1);
             guessArr.splice(i, 1, 1);
@@ -15,7 +15,7 @@ export function feedback(correctWord, guess) {
         if (guessArr[i] != correctWordArr[i] && correctWordArr ) {
             output.push({
                 letter: guessArr[i],
-                color: "#ff4f2b"
+                color: "red"
             });
         }
     } 
@@ -23,7 +23,7 @@ export function feedback(correctWord, guess) {
         if (correctWordArr.includes(guessArr[i]) && guessArr[i] != correctWordArr[i])  {
             output.splice(i, 1, {
                 letter: guessArr[i],
-                color: "#ffff70"
+                color: "yellow"
             }); 
         }
     } 
