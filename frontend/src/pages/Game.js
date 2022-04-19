@@ -1,7 +1,8 @@
 import { useState } from "react";
 import GuessInput from "../components/GuessInputComponent";
 import GuessList from "../components/GuessListComponent";
-import "../css/Config.css"
+import "../css/Config.css";
+import "../css/Game.css";
 
 function Game({ gameId, WordLength }) {
   const [GameState, setGameState] = useState("playing");
