@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GuessInput from "../components/GuessInputComponent";
 import GuessList from "../components/GuessListComponent";
+import Timer from "../components/TimerComponent";
 import "../css/Config.css";
 import "../css/Game.css";
 
@@ -56,14 +57,17 @@ function Game({ gameId, WordLength }) {
     return (
       <div>
 
-        <GuessList guesses={guesses} />
+        <Timer />
+        <GuessList 
+          WordLength={WordLength}
+          guesses={guesses}/>
 
         <GuessInput
           SubmitGuess={SubmitGuess}
           InputWord={InputWord}
           setInputWord={setInputWord} />
 
-        <p className="message"> {message} </p> 
+        <p className="message"> {message} </p>
 
       </div>
 

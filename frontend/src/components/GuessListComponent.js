@@ -1,6 +1,6 @@
 import "../css/GuessList.css";
 
-function GuessList({ guesses }) {
+function GuessList({ guesses, WordLength }) {
   console.log(guesses);
 
   const guessElements = guesses.map((guess, i) => {
@@ -12,7 +12,17 @@ function GuessList({ guesses }) {
       </li>
     )
   });
-  return <ul className="guess-list">{guessElements}</ul>;
+  return (
+    <ul className="guess-list">
+      {guessElements}
+
+      <div className="empty-container">
+        {Array.from(new Array(WordLength)).map((_, index) => (
+          <span className="empty" key={index} />))}
+      </div>
+
+    </ul>
+  );
 }
 
 export default GuessList;

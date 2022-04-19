@@ -37,3 +37,15 @@ span {
 .red {
     background-color: #f7a9a3;
 }
+
+.empty-container {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #fff;
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.empty {
+    background-color: #fff;
+}
