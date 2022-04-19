@@ -40,7 +40,7 @@ function Game({ gameId, WordLength }) {
       setInputWord("");
     }
     else {
-      setMessage("Entered guess must only contain chosen amount of letters from A-Z");
+      setMessage(" [ Entered guess must only contain chosen amount of letters from A-Z ] ");
     }
   }
 
