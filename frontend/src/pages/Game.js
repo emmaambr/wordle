@@ -3,35 +3,44 @@ import GuessInput from "../components/GuessInputComponent";
 import GuessList from "../components/GuessListComponent";
 import "../css/Config.css"
 
-function Game({ gameId }) {
+function Game({ gameId, WordLength }) {
   const [GameState, setGameState] = useState("playing");
   const [InputWord, setInputWord] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [result, setResult] = useState(null);
+  const [message, setMessage] = useState(null);
 
   async function SubmitGuess() {
-    setGuesses([...guesses]);
+    const regEx = /^[A-Za-z]+$/;
 
-    const res = await fetch(
-      `http://localhost:5080/api/games/${gameId}/guesses`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ guess: InputWord }),
+    if (InputWord.length === WordLength && regEx.test(InputWord)) {
+      setGuesses([...guesses]);
+      setMessage("");
+
+      const res = await fetch(
+        `http://localhost:5080/api/games/${gameId}/guesses`,
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ guess: InputWord }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.correct) {
+        setResult(data.result);
+        setGameState("won");
       }
-    );
 
-    const data = await res.json();
-
-    if (data.correct) {
-      setResult(data.result);
-      setGameState("won");
+      setGuesses(data.guesses);
+      setInputWord("");
     }
-
-    setGuesses(data.guesses);
-    setInputWord("");
+    else {
+      setMessage("Entered guess must only contain chosen amount of letters from A-Z");
+    }
   }
 
   if (GameState === "won") {
@@ -52,6 +61,8 @@ function Game({ gameId }) {
           SubmitGuess={SubmitGuess}
           InputWord={InputWord}
           setInputWord={setInputWord} />
+
+        <p className="message"> {message} </p> 
 
       </div>
 

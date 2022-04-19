@@ -47,7 +47,9 @@ function App() {
       <div className="App">
         <h1> Wordle </h1>
 
-        <Game gameId={gameId} />
+        <Game
+          gameId={gameId}
+          WordLength={WordLength} />
 
       </div>
     );
