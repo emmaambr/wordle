@@ -2,20 +2,6 @@
     margin: 3rem;
 }
 
-.box-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.label-box {
-    height: 3.3rem;
-    width: 3.3rem;
-    margin: 0.6rem;
-    border: 2px solid #fff;
-    background-color: #fff;
-}
-
 .submit-form{
     display: flex;
     justify-content: center;
