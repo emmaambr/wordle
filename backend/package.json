@@ -21,7 +21,9 @@
   "homepage": "https://github.com/emmaambr/wordle#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "mongoose": "^6.3.0",
     "node": "^17.7.2",
     "uuid": "^8.3.2"
   },
