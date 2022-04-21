@@ -1,0 +1,8 @@
+.timer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #fff;
+    width: fit-content;
+    margin: auto;
+    padding: 0.5rem 1rem;
+}
