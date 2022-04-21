@@ -4,23 +4,39 @@ import * as uuid from "uuid";
 import { getRandomWord } from "./utils/randomWord.js";
 import { feedback } from "./utils/feedback.js";
 
+//import mongoose from "mongoose";
+//import "dotenv/config";
+// const uri = process.env.MONGODB_CONNECTION_STRING;
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-//app.use(express.static(path.resolve(__dirname, '../frontend/build')));
+// app.use(express.static(path.resolve(__dirname, '../frontend/build')));
+/*
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+const connection = mongoose.connection;
+connection.once("open", () => {
+    console.log("MongoDB database connection established seccessfully");
+})
+*/
 
 const GAMES = [];
 
 // POST /api/games
-app.post("/api/games", (req, res) => {
+app.post("/api/games", async (req, res) => {
     const wordLength = req.body.WordLength;
     const unique = req.body.Unique;
+    const correctWord = await getRandomWord(wordLength, unique);
 
     const game = {
-        correctWord: getRandomWord(wordLength, unique),
+        correctWord: correctWord,
         guesses: [],
         id: uuid.v4(),
+        startTime: new Date(),
         wordLength: wordLength,
         unique: unique,
     };
@@ -36,11 +52,12 @@ app.post("/api/games/:id/guesses", (req, res) => {
 
     if (game) {
         const guess = req.body.guess;
-        const result = feedback(game.correctWord, guess);
-        game.guesses.push(guess);  
+        const correctWord = game.correctWord;
+        const result = feedback(correctWord, guess);
+        game.guesses.push(result);  
 
         if (guess === game.correctWord) {
-           // game.endTime = new Date();
+            game.endTime = new Date();
 
             res.status(201).json({
                 guesses: game.guesses,
