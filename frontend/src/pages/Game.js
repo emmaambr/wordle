@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GuessInput from "../components/GuessInputComponent";
 import GuessList from "../components/GuessListComponent";
+import Highscore from "../pages/Highscore";
 import Timer from "../components/TimerComponent";
 import "../css/Config.css";
 import "../css/Game.css";
@@ -19,8 +20,7 @@ function Game({ gameId, WordLength }) {
       setGuesses([...guesses]);
       setMessage("");
 
-      const res = await fetch(
-        `http://localhost:5080/api/games/${gameId}/guesses`,
+      const res = await fetch(`http://localhost:5080/api/games/${gameId}/guesses`,
         {
           method: "post",
           headers: {
@@ -49,7 +49,10 @@ function Game({ gameId, WordLength }) {
     return (
       <div>
 
-        <h1> Congratulations, you're a winner!</h1>
+        <Highscore 
+          gameId={gameId} 
+          result={result}
+          guesses={guesses} />
 
       </div>
     );
