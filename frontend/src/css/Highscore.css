@@ -1,0 +1,28 @@
+.border-hs {
+    display: flex;
+    margin: auto;
+    background-image: linear-gradient(#ff6b08, #cf23cf);
+    width: 600px;
+    height: 600px;
+    border-radius: 4px;
+}
+
+.submit-hs-container {
+    display: flex;  
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 4px;
+    width: 585px;
+    height: 585px;
+}
+
+.winner-title { 
+    font-size: 2rem;
+}
+
+.box-container {
+    margin-top: 2rem;
+}

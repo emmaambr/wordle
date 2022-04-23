@@ -1,18 +1,22 @@
-.config-container {
+.border-config {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+    background-image: linear-gradient(#ff6b08, #cf23cf);
+    width: 500px;
+    height: 500px;
+    border-radius: 4px;
 }
 
-.config-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.config-container {
+    display: flex;  
     flex-direction: column;
-    height: 50vh;
-    width: 40vw;
-    border: 2px solid #fff;
-    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #000;
+    border-radius: 4px;
+    width: 485px;
+    height: 485px;
 }
 
 .wl-container {
@@ -49,17 +53,19 @@
 }
 
 .config-btn {
-    margin: 1rem;
+    margin: 2rem auto;
+    display: flex;
+    align-self: center;
     width: fit-content;
     padding: 0.4rem 0.6rem;
     color: #fff;
-    background: #f05590;
+    background: #f32170;
     border-style: none;
     border-radius: 4px;
     font-size: 1rem;
 }
 
 .config-btn:hover {
-    background: #f32170;
+    background: #ea3f81;
     cursor: pointer;
 }

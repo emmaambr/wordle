@@ -1,3 +1,5 @@
+import "../css/HighscoreInput.css"
+
 function HighscoreInput({ SubmitHighscore, Player, setPlayer }) {
     function handleSubmitHighscore(ev) {
         ev.preventDefault();

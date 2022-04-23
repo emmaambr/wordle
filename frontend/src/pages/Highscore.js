@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HighscoreInput from "../components/HighscoreInputComponent";
+import "../css/Highscore.css"
 
 function Highscore({ gameId, result, guesses }) {
     const [Player, setPlayer] = useState("");
@@ -44,21 +45,23 @@ function Highscore({ gameId, result, guesses }) {
 
     if (GameState === "won") {
         return (
-            <div className="sumbit-hs-container">
+            <div className="border-hs">
+                <div className="submit-hs-container">
 
-                {correct.at(-1)}
+                    {correct.at(-1)}
 
-                <h3> Congratulations, you won! </h3>
-                <p> Number of guesses: {guesses.length} </p>
-                <p> Time: {setSeconds} sek</p>
+                    <h3 className="winner-title"> Winner winner, chicken dinner! </h3>
+                    <p> Number of guesses: {guesses.length} </p>
+                    <p> Time: {setSeconds} sec</p>
 
-                <HighscoreInput
-                    Player={Player}
-                    setPlayer={setPlayer}
-                    SubmitHighscore={SubmitHighscore} />
+                    <HighscoreInput
+                        Player={Player}
+                        setPlayer={setPlayer}
+                        SubmitHighscore={SubmitHighscore} />
 
-                <p className="message"> {Message} </p>
+                    <p className="message"> {Message} </p>
 
+                </div>
             </div>
         );
     } else {
