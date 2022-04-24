@@ -5,7 +5,7 @@
         <ul class="hs-content">
             {{#each highscores}}
             <li class="player">
-                {{@index}}
+                {{math @index "+" 1}}
                 <p> Player: {{ this.player }} </p>
                 <p> Time: {{ this.duration }}sec </p>
                 <p> Number of letters: {{ this.wordLength }} </p>

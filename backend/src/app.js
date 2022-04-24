@@ -13,7 +13,18 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.engine("handlebars", engine());
+app.engine('handlebars', engine({
+    helpers: {
+        math: function (lvalue, operator, rvalue) {
+            lvalue = parseFloat(lvalue);
+            rvalue = parseFloat(rvalue);
+            return {
+                "+": lvalue + rvalue,
+            }[operator];
+        }
+    }
+}));
+
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
@@ -99,7 +110,7 @@ app.post("/api/games/:id/highscore", async (req, res) => {
 // GET /api/higscores
 app.get("/highscore", async (req, res) => {
     const highscore = await GameHighscore.find();
-    const filtered = highscore.sort((a, b) => { 
+    const filtered = highscore.sort((a, b) => {
         return (new Date(a.endTime) - new Date(a.startTime) - (new Date(b.endTime) - new Date(b.startTime)))
     });
 
