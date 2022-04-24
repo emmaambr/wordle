@@ -4,7 +4,6 @@ import "../css/Highscore.css"
 
 function Highscore({ gameId, result, guesses }) {
     const [Player, setPlayer] = useState("");
-    const [GameState, setGameState] = useState("won");
     const [Message, setMessage] = useState("");
 
     const duration = (new Date(result.endTime) - new Date(result.startTime)) / 1000;
@@ -14,9 +13,8 @@ function Highscore({ gameId, result, guesses }) {
         const regEx = /^[A-Za-z]+$/;
 
         if (Player.length < 13 && regEx.test(Player)) {
-            setGameState("highscore");
             setMessage("");
-            setGameState(null);
+            window.location.href = "http://localhost:5080/highscore";
 
             await fetch(`http://localhost:5080/api/games/${gameId}/highscore`,
                 {
@@ -43,30 +41,27 @@ function Highscore({ gameId, result, guesses }) {
         )
     });
 
-    if (GameState === "won") {
-        return (
-            <div className="border-hs">
-                <div className="submit-hs-container">
+    return (
+        <div className="border-hs">
+            <div className="submit-hs-container">
 
-                    {correct.at(-1)}
+                {correct.at(-1)}
 
-                    <h3 className="winner-title"> Winner winner, chicken dinner! </h3>
-                    <p> Number of guesses: {guesses.length} </p>
-                    <p> Time: {setSeconds} sec</p>
+                <h3 className="winner-title"> Winner winner, chicken dinner! </h3>
+                <p> Number of guesses: {guesses.length} </p>
+                <p> Time: {setSeconds} sec</p>
 
-                    <HighscoreInput
-                        Player={Player}
-                        setPlayer={setPlayer}
-                        SubmitHighscore={SubmitHighscore} />
+                <HighscoreInput
+                    Player={Player}
+                    setPlayer={setPlayer}
+                    SubmitHighscore={SubmitHighscore} />
 
-                    <p className="message"> {Message} </p>
+                <p className="message"> {Message} </p>
 
-                </div>
             </div>
-        );
-    } else {
-        return <> </>;
-    }
+        </div>
+    );
 }
+
 
 export default Highscore;
