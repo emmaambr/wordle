@@ -13,9 +13,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
-app.set('views', './views');
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", "./views");
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
@@ -118,7 +118,7 @@ app.get("/info", async (req, res) => {
     res.render("info");
 });
 
-app.get("/", express.static("../frontend/build"));
-// app.use(express.static(path.resolve(__dirname, '../frontend/build')));
+app.use(express.static('../frontend/build'));
+app.use(express.static("./public"));
 
 export default app;
