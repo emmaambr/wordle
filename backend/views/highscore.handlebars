@@ -1,0 +1,17 @@
+<div class="border">
+    <div class="hs-container">
+        <h1> Highscores </h1>
+
+        <ul class="hs-content">
+            {{#each highscores}}
+            <li class="player">
+                {{@index}}
+                <p> Player: {{ this.player }} </p>
+                <p> Time: {{ this.duration }}sec </p>
+                <p> Number of letters: {{ this.wordLength }} </p>
+                <p> Unique characters: {{ this.unique }} </p>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

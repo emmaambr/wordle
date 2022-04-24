@@ -100,18 +100,21 @@ app.post("/api/games/:id/highscore", async (req, res) => {
 });
 
 // GET /api/higscores
-app.get("/api/highscores", async (req, res) => {
-    const highscore = await loadHighscore();
-    res.json({
-        highscore: highscore.map((entry) => ({
+app.get("/highscore", async (req, res) => {
+    const highscore = await GameHighscore.find();
+    const filtered = highscore.sort((a, b) => { 
+        return (new Date(a.endTime) - new Date(a.startTime) - (new Date(b.endTime) - new Date(b.startTime)))
+    });
+
+    res.render("highscore", {
+        highscores: filtered.map((entry) => ({
             ...entry,
-            duration: new Date(entry.endTime) - new Date(entry.startTime),
+            duration: Math.trunc((new Date(entry.endTime) - new Date(entry.startTime)) / 1000),
+            player: entry.player,
+            wordLength: entry.wordLength,
+            unique: entry.unique,
         })),
     });
-});
-
-app.get("/highscore", async (req, res) => {
-    res.render("highscore");
 });
 
 app.get("/info", async (req, res) => {
