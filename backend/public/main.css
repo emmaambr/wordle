@@ -99,7 +99,7 @@ h2 {
     margin: auto;
     background-image: linear-gradient(#ff6b08, #cf23cf);
     width: 500px;
-
+    height: 700px;
 }
 
 .hs-container {
@@ -110,12 +110,13 @@ h2 {
     margin: auto;
     background-color: #000;
     width: 495px;  
+    height: 695px;
 }
 
 .hs-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: block;
+    max-height: 695px;
+    overflow-y: auto;
 }
 
 .player {
