@@ -24,8 +24,6 @@ mongoose.connect(uri, {
 
 const connection = mongoose.connection;
 connection.once("open", () => {
-    console.log("MongoDb database succesfully connected!");
-
 });
 
 const GAMES = [];
@@ -45,7 +43,6 @@ app.post("/api/games", async (req, res) => {
         unique: unique,
     };
     GAMES.push(game);
-    console.log(game);
 
     res.status(201).json({ id: game.id, wordLength, unique });
 })

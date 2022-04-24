@@ -27,7 +27,6 @@ export function feedback(correctWord, guess) {
             }); 
         }
     } 
-    console.log(output);
     return output;
 }
 

@@ -1,8 +1,6 @@
 import "../css/GuessList.css";
 
 function GuessList({ guesses, WordLength }) {
-  console.log(guesses);
-
   const guessElements = guesses.map((guess, i) => {
     return (
       <li key={i} className="box-container">
