@@ -98,6 +98,7 @@ h2 {
     display: flex;
     margin: auto;
     background-image: linear-gradient(#ff6b08, #cf23cf);
+    border-radius: 4px;
     width: 500px;
     height: 700px;
 }
@@ -109,6 +110,7 @@ h2 {
     justify-content: center;
     margin: auto;
     background-color: #000;
+    border-radius: 4px;
     width: 495px;  
     height: 695px;
 }
