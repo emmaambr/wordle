@@ -6,13 +6,13 @@ function Navbar() {
         <nav className="Navbar">
             <ul>
                 <li>
-                    <a href="/" className=''> Home </a>
+                    <a href="/"> Home </a>
                 </li>
                 <li>
-                    <a href="/highscore" className=""> Highscore </a>
+                    <a href="/highscore"> Highscore </a>
                 </li>
                 <li>
-                    <a href="/info" className=""> Info </a>
+                    <a href="/info"> Info </a>
                 </li>
             </ul>
         </nav>  
